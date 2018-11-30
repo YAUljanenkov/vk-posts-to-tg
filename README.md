@@ -10,8 +10,13 @@ Also soon I'll make code prettier.
 
 ## How to configure this bot
 
+<<<<<<< HEAD
 1. Visit `vk.com/<your_group_id>?act=tokens` and create a token with "wall" rights.
 2. Secodly, go to Telegram and create a bot using `@BotFather`
+=======
+1. Visit vk.com/<your_group_id>?act=tokens and create a token with "wall" rights.
+2. Go to Telegram and create a bot using `@BotFather`
+>>>>>>> b3fba69495a3e16b651200217f4c7294ae00728e
 3. Add your bot to administrators of your channel
 4. Clone this repo
 5. Create a file `config.py` and fill it using this template:
