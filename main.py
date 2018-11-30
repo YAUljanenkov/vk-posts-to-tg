@@ -10,13 +10,12 @@ logging.basicConfig(format=u'[LINE:%(lineno)d]# %(levelname)-8s [%(asctime)s]  %
 
 
 def main():
-    updater = Updater(TELEGRAM_BOT_TOKEN)
-    bot = updater.bot
-    vk_session = vk_api.VkApi(token=VK_TOKEN)
-
-    long_poll = VkBotLongPoll(vk_session, VK_GROUP_ID)
-
     try:  # TODO: rewrite the code
+        updater = Updater(TELEGRAM_BOT_TOKEN)
+        bot = updater.bot
+        vk_session = vk_api.VkApi(token=VK_TOKEN)
+
+        long_poll = VkBotLongPoll(vk_session, VK_GROUP_ID)
 
         for event in long_poll.listen():
 
