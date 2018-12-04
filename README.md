@@ -46,6 +46,9 @@ REQUEST_KWARGS={
 ```
 
 ### If you use SOCKS5 Server
+
+Run `pip install python-telegram-bot[socks]`
+
 In file `config.py`:
 ```python
 REQUEST_KWARGS={
