@@ -10,22 +10,52 @@ Also soon I'll make code prettier.
 
 ## How to configure this bot
 
-1. Visit `vk.com/<your_group_id>?act=tokens` and create a token with "wall" rights.
-2. Go to Telegram and create a bot using `@BotFather`
-3. Add your bot to administrators of your channel
-4. Clone this repo
-5. Create a file `config.py` and fill it using this template:
+1. Visit `vk.com/<your_group_id>?act=tokens` and create a token with "wall" rights. 
+2. Enable Long Poll API here `https://vk.com/<your_group_id>?act=longpoll_api`
+3. Go to Telegram and create a bot using `@BotFather`
+4. Add your bot to administrators of your channel
+5. Clone this repo
+6. Create a file `config.py` and fill it using this template:
     ```python
     VK_TOKEN = '<YOUR TOKEN>'
     VK_GROUP_ID = '<YOUR VK GROUP ID'
     TELEGRAM_GROUP_ID = '<ID OF YOUR Tg CHANNEL>'
     TELEGRAM_BOT_TOKEN = '<BOT TOKEN>'
+    REQUEST_KWARGS = {}
     ```
     I recommend you to use `@getidsbot` to get your telegram channel ID. 
-6. Run `pip3 install -r requirements.txt`
-7. Run `python3 main.py`
-8. ...
-9. Profit!
+7. Run `pip3 install -r requirements.txt`
+8. Run `python3 main.py`
+9. For Russian users: you need to configure Proxy. Do it by yourself or follow instructions below.
+10. Profit!
 
+
+## How to configure Proxy
+
+### If you use HTTP Proxy
+In file `config.py`:
+
+```python
+REQUEST_KWARGS={
+    'proxy_url': 'http://PROXY_HOST:PROXY_PORT/',
+    # Optional, if you need authentication:
+    'username': 'PROXY_USER',
+    'password': 'PROXY_PASS',
+}
+
+```
+
+### If you use SOCKS5 Server
+In file `config.py`:
+```python
+REQUEST_KWARGS={
+    'proxy_url': 'socks5://URL_OF_THE_PROXY_SERVER',
+    # Optional, if you need authentication:
+    'urllib3_proxy_kwargs': {
+        'username': 'PROXY_USER',
+        'password': 'PROXY_PASS',
+    }
+}
+```
 
 

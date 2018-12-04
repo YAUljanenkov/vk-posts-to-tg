@@ -1,7 +1,7 @@
 import sys
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
-from config import VK_TOKEN, VK_GROUP_ID, TELEGRAM_BOT_TOKEN, TELEGRAM_GROUP_ID
+from config import VK_TOKEN, VK_GROUP_ID, TELEGRAM_BOT_TOKEN, TELEGRAM_GROUP_ID, REQUEST_KWARGS
 import telegram
 from telegram.ext import Updater
 import logging
@@ -11,7 +11,7 @@ logging.basicConfig(format=u'[LINE:%(lineno)d]# %(levelname)-8s [%(asctime)s]  %
 
 def main():
     try:  # TODO: rewrite the code
-        updater = Updater(TELEGRAM_BOT_TOKEN)
+        updater = Updater(TELEGRAM_BOT_TOKEN, request_kwargs=REQUEST_KWARGS)
         bot = updater.bot
         vk_session = vk_api.VkApi(token=VK_TOKEN)
 
