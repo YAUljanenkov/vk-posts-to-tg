@@ -27,11 +27,9 @@ def main():
                     for attachment in event.obj['attachments']:
                         if attachment['type'] == 'photo':
                             for photo_size in ['photo_2560', 'photo_1280', 'photo_807', 'photo_604', 'photo_130']:
-                                try:
+                                if photo_size in attachment['photo'].keys():
                                     bot.send_photo(TELEGRAM_GROUP_ID, attachment['photo'][photo_size])
                                     break
-                                except KeyError:
-                                    continue
                         if attachment['type'] == 'doc':
                             bot.send_document(TELEGRAM_GROUP_ID, attachment['doc']['url'])
     except telegram.error.TimedOut:
